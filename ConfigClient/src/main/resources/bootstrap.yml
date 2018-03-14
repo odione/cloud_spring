@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: cloud-lab01
+  cloud:
+    config:
+      uri: http://localhost:8888
+  rabbitmq:
+    host: localhost
+    port: 5672

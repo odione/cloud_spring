@@ -1,0 +1,18 @@
+server:
+  port: 8888
+  
+management:
+  security:
+    enabled: false
+    
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: file://home/odione/dsv/java/workspace/config-repo
+    bus:
+      enabled: true
+  rabbitmq:
+    host: localhost
+    port: 5672
