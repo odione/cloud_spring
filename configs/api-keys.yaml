@@ -1,0 +1,4 @@
+server:
+  shutdown: graceful
+  http2:
+    enabled: true
