@@ -1,0 +1,2 @@
+redis:
+  root-key: payment-dev

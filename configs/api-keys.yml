@@ -5,25 +5,25 @@ server:
 
 logging:
   level:
-    root: ${ROOT_LOG_LEVEL:info}
+    root: info
 
 spring:
   application:
-    name: ${APPLICATION_NAME:api-keys}
+    name: api-keys
   webflux:
     base-path: /keys/v1
   cache:
     type: none
   redis:
     client-type: lettuce
-    host: ${REDIS_HOST:localhost}
-    port: ${REDIS_PORT:6379}
+    host: localhost
+    port: 6379
     lettuce:
       pool:
-        max-active: ${REDIS_MAX-ACTIVE:10}
-        max-idle: ${REDIS_MAX-IDLE:10}
-        max-wait: ${REDIS_MAX-WAIT:500}
-        min-idle: ${REDIS_MIN-IDLE:5}
+        max-active: 10
+        max-idle: 10
+        max-wait: 500
+        min-idle: 5
 
 management:
   endpoints:
@@ -49,29 +49,29 @@ management:
 
 opentracing:
   jaeger:
-    enabled: ${JAEGER_ENABLED:true}
+    enabled: true
     service-name: ${spring.application.name}-${spring.profiles.active}
-    log-spans: ${OPENTRACING_LOG_SPANS:false}
+    log-spans: false
     http-sender:
-      url: ${JAEGER_ENDPOINT:http://localhost:14268/api/traces}
+      url: http://localhost:14268/api/traces
     probabilistic-sampler:
-      sampling-rate: ${JAEGER_SAMPLER:1} # 1 = 100%, 0.5 = 50%, etc.
+      sampling-rate: 1 # 1 = 100%, 0.5 = 50%, etc.
   spring:
     cloud:
       jdbc:
-        enabled: ${JAEGER_JDBC_ENABLED:false}
+        enabled: false
       redis:
-        enabled: ${JAEGER_REDIS_ENABLED:true}
+        enabled: true
     web:
-      skip-pattern: ${JAEGER_SKIP_PATTERN:/actuator.*}
+      skip-pattern: /actuator.*
 
 redis:
-  root-key: ${REDIS_ROOT_KEY:payment}
-  publicKeySwapTime: ${REDIS_PUBLIC_KEY_SWAP_TIME:60} # in seconds
+  root-key: payment
+  publicKeySwapTime: 60 # in seconds
   ttl:
-    default: ${REDIS_DEFAULT_TTL:60} # in minutes
-    partner-public-keys: ${REDIS_PARTNER_PUBLIC_KEYS_TTL:1440} # in minutes
+    default: 60 # in minutes
+    partner-public-keys: 1440 # in minutes
 
 interceptor:
   mdc-interceptor:
-    enabled: ${MDC_INTERCEPTOR:true} # Mapped Diagnostic Context (MDC)
+    enabled: true # Mapped Diagnostic Context (MDC)
