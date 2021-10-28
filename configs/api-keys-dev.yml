@@ -1,2 +1,2 @@
 redis:
-  root-key: payment-dev
+  root-key: payment-dev-novo
