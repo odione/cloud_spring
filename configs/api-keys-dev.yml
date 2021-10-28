@@ -1,2 +1,2 @@
 redis:
-  root-key: payment-dev-b
+  root-key: payment-dev-c
